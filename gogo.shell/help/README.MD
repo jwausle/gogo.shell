@@ -1,6 +1,13 @@
 # gogo.shell commands
 
 **[general felix:commands](#general-felixcommands)**  
+**[bundle lifecycle felix:commands](#bundle-lifecycle-felixcommands)**  
+**[bundle inspection felix:commands](#bundle-inspection-felixcommands)**  
+**[general gogo:commands](#general-gogocommands)**  
+**[script gogo:commands](#script-gogocommands)**  
+**[internal gogo:commands](#internal-gogocommands)**  
+**[language gogo:commands](#language-gogocommands)**  
+**[repository obr:commands](#repository-obrcommands)**  
 
 ## general felix:commands
 
@@ -148,7 +155,7 @@ parameters:
 
 ***gogo:source***
 
-## special/internal gogo:commands
+## internal gogo:commands
 
 ***gogo:type***
 
