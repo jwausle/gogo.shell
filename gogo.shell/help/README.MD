@@ -4,8 +4,17 @@
 
 ***felix:help	[command]***
 
-> show help for all or one 'command'
-> 'command' is optional
+show help for all or one 'command'
+'command' is optional
+
+```
+g! help echo 
+
+echo
+   scope: gogo
+   parameters:
+      Object[] 
+```
 
 ## bundle felix:commands
 
