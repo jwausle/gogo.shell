@@ -18,8 +18,10 @@ Getting started
 Howto use
 * open console
 
-`g! help`
-`g! set` 
-`...`
+`
+g! help
+g! set
+...
+`
 
 @see more command-help: gogo.shell/help/README.MD
