@@ -5,6 +5,7 @@
 ***felix:help	[command]***
 
 show help for all or one 'command'
+
 'command' is optional
 
 ```
