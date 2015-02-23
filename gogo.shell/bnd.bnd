@@ -1,11 +1,11 @@
 -buildpath:  \
 	osgi.cmpn,\
 	biz.aQute.bnd.annotation,\
-	org.apache.felix.gogo.command;version=0.12,\
 	org.apache.felix.gogo.runtime;version=0.12,\
 	org.apache.felix.gogo.shell;version=0.10,\
 	osgi.core;version=4.3,\
-	org.apache.felix.bundlerepository;version=2.0
+	org.apache.felix.bundlerepository;version=2.0,\
+	org.apache.felix.gogo.command;version=0.14
 Bundle-Version: 0.0.1.${tstamp}
 Private-Package:  \
 	gogo.shell,\

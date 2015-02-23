@@ -5,7 +5,6 @@ import gogo.shell.fistcommand.FirstCommand;
 import java.util.Dictionary;
 import java.util.Hashtable;
 
-import org.apache.felix.service.command.CommandProcessor;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -15,20 +14,23 @@ import org.osgi.framework.ServiceReference;
 
 public class Activator implements BundleActivator, BundleListener {
 
+	private BundleContext context;
+
 	@Override
 	public void start(BundleContext context) throws Exception {		
+		this.context = context;
+
+		context.addBundleListener(this);
+
 		Dictionary<String, Object> dict = new Hashtable<>();
 		dict.put("osgi.command.scope", "itemisle");
 		dict.put("osgi.command.function", new String[] {"closure"});
 		context.registerService(FirstCommand.class, new FirstCommand(), dict);
 	}
 
-	private BundleContext context;
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
-		context.addBundleListener(this);
-		this.context = context;
 		// do nothing
 	}
 

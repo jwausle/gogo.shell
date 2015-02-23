@@ -16,12 +16,37 @@ echo
       Object[] 
 ```
 
-## bundle felix:commands
+***felix:cd ['path']***
 
-felix:install  'url'
+- change directory to path
+- default-root='user.dir'
 
-> install a jar as bundle
-> 'url' : file:/absolute/path/to.jar
+Limitation:
+
+```
+g! cd /tmp		# absolute paths impossible
+```
+
+***felix:ls ['path']***
+
+- list content dir
+- list actual dir 					( if noparam )
+- list content of actual-dir/path	( if path-exist )
+
+***felix:which 'class'***
+
+- determines from where a bundle loads a class
+
+parameters:  
+      Bundle   target bundle  
+      String   target class name  
+
+## bundle lifecycle felix:commands
+
+***felix:install  'url'***
+
+- install a jar as bundle
+- 'url' : file:/absolute/path/to.jar
 
 Sample:
 
@@ -29,72 +54,128 @@ Sample:
 
 Limitation:
 
-> 'file:/...' is valid 'file://...' not
+```
+g! install 'file:/ ...' 	# is valid 
+g! install 'file://...' 	# is invalid
+```
 
-felix:uninstall 'bundleId'
+***felix:uninstall 'bundleId'***
 
-> uninstall a bundle from container
+- uninstall a bundle from container
+- 'bundleId: 1...N 
 
-felix:refresh  'bundleId'
+***felix:refresh  'bundleId'***
 
-> 
-felix:update
-felix:resolve
-felix:start
-felix:stop
-felix:bundlelevel
-felix:frameworklevel
-felix:log
+- refresh wired packages and services
+- use 'PackageAdmin' to refresh packages and services 
+ 
+***felix:update 'bundleId'***
 
----
+- stop & reload bundle.jar
 
-felix:lb
-felix:headers
-felix:inspect
+***felix:resolve 'bundleId'***
 
----
+- resolve bundle 
+- use 'PackageAdmin' to resolve bundle
 
-felix:cd
-felix:ls
-felix:which
+***felix:start 'bundleId'***
 
----
+- start bundle 
 
-gogo:set
-gogo:echo
-gogo:grep
-gogo:cat
-gogo:tac
+***felix:stop 'bundleId'***
 
----
+- stop bundle
 
-gogo:sh
-gogo:gosh
-gogo:source
+***felix:bundlelevel ['startlevel' 'bundleId']***
 
----
+- show bundlelevel of bundles 		( if noparam )
+- set 'startlevel' for 'bundleId' 	( if 2-params exist )
 
-gogo:type
-gogo:getopt
-gogo:format
+If bundlelevel > frameworklevel will bundle stop.
 
----
+***felix:frameworklevel ['startlevel']***
 
-gogo:telnetd
+- show frameworklevel of container	( if noparam )
+- set 'startlevel' of container		( if 1-param exist )
 
----
+If bundlelevel > frameworklevel will bundles stop.
 
-gogo:each
-gogo:not
-gogo:until
+***felix:log 'message'***
 
----
+- log a message to log-service.
+
+## bundle inspection felix:commands
+
+***felix:lb ['flags'] ['bsn']***
+
+- list installed bundles matching a substring
+ 
+flags:  
+      -l, --location   show location  
+      -s, --symbolicname   show symbolic name  
+      -u, --updatelocation   show update location  
+parameters:  
+      bsn   subtring matched against name or symbolic name  
+
+***felix:headers ['bundleId'] ***
+
+- show all headers 		( if noparam )
+- show bundle-header 	( if 1-param exist )
 
 
+***felix:inspect***
 
-obr:deploy
-obr:info
-obr:javadoc
-obr:list
-obr:repos
-obr:source
+
+## general gogo:commands
+
+***gogo:set***
+
+***gogo:echo***
+
+***gogo:grep***
+
+***gogo:cat***
+
+***gogo:tac***
+
+## script gogo:commands
+
+***gogo:sh***
+
+***gogo:gosh***
+
+***gogo:source***
+
+## special/internal gogo:commands
+
+***gogo:type***
+
+***gogo:getopt***
+
+***gogo:format***
+
+***gogo:telnetd***
+
+
+## language gogo:commands
+
+***gogo:each***
+
+***gogo:not***
+
+***gogo:until***
+
+## repository obr:commands
+
+***obr:deploy***
+
+***obr:info***
+
+***obr:javadoc***
+
+***obr:list***
+
+***obr:repos***
+
+***obr:source***
+
