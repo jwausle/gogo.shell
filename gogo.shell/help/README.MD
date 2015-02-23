@@ -1,5 +1,7 @@
 # gogo.shell commands
 
+**[general felix:commands](#general-felix:commands)**  
+
 ## general felix:commands
 
 ***felix:help	[command]***
