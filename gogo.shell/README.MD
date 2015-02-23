@@ -19,9 +19,9 @@ Howto use
 * open console
 
 `
-g! help
-g! set
-...
+g! help <br />
+g! set <br />
+... <br />
 `
 
 @see more command-help: gogo.shell/help/README.MD
