@@ -1,0 +1,267 @@
+g! type --help 
+type - show command type
+Usage: type [OPTIONS] [name[:]]
+  -a --all                 show all matches
+  -? --help                show help
+  -q --quiet               don't print anything, just return status
+  -s --scope=NAME          list all commands in named scope
+  -t --types               show full java type names
+  
+g! type -a  context:addbundlelistener
+context:addbundlelistener is void context:addbundlelistener(BundleListener)
+true
+
+g! type -t context:addbundlelistener
+void org.apache.felix.framework.BundleContextImpl.addBundleListener(BundleListener)
+
+g! type -a 
+context == instance des shell(BundleContext context)
+context:addbundlelistener
+context:addcapability
+context:addframeworklistener
+context:addrequirement
+context:addservicelistener
+context:allservicereferences
+context:bundle
+context:bundles
+context:createfilter
+context:datafile
+context:getallservicereferences
+context:getbundle
+context:getbundles
+context:getdatafile
+context:getproperty
+context:getservice
+context:getservicereference
+context:getservicereferences
+context:installbundle
+context:property
+context:registerservice
+context:removebundlelistener
+context:removecapability
+context:removeframeworklistener
+context:removerequirement
+context:removeservicelistener
+context:service
+context:servicereference
+context:servicereferences
+context:ungetservice
+felix:bundlelevel -------
+1) show startlevel of bundle
+2) set start level of bundle. Wenn bundlelevel > frameworklevel => stop
+felix:cd ----------------
+1) change-directory 
+2) default: user.dir
+felix:frameworklevel ----
+1) show start level of autostart
+2) set start level for autostart. All bundlelevel > frameworklevel => stop
+felix:headers------------
+1) show header of one or all bundles
+felix:help --------------
+1) show help of one or all commands (visible commands)
+-  use 'type' to show all
+felix:inspect -----------
+1) try to find cap´s and req´s
+!) Syntax: cap <grep-regex4keys> <bundle.id | all> 	=> keys are service, osgi.wiring.package/bundle/host  
+felix:install -----------
+1) install a bundle
+!) 'file:/' not 'file://'
+felix:lb ----------------
+1) list bundles with different views
+felix:log ---------------
+felix:ls ----------------
+1) list information about files/folders
+
+felix:refresh -----------
+1) refresh bundle == stop&start if started
+felix:resolve -----------
+1) resolve (but not start) bundle
+felix:start -------------
+1) start bundle by id if not started
+felix:stop --------------
+1) stop bundle if started
+felix:uninstall ---------
+1) stop bundle & remove bundle-from container ( bundle.id is not longe valid )
+felix:update
+1) reload the jar of bundle & refresh
+felix:which	--------------- void felix:which(Bundle, String) -------------------
+- determines from where a bundle loads a class 
+g! which 1 java.lang.System
+Loaded from: boot class loader
+g! which 3 org.osgi.framework.BundleActivator
+Loaded from: sun.misc.Launcher$AppClassLoader@655d7752
+g! which 3 org.osgi.service.log.LogService
+Loaded from: org.apache.felix.gogo.command [3]
+
+gogo:cat -------------------
+1) show/print one or more files on sysout 
+gogo:each ------------------
+gogo:echo ------------------
+1) show/print string | object.toString´s
+g! echo ( ( new java.io.File .project ) exists )
+
+gogo:format --------------  shell/CharSequence gogo:format(CommandSession, Object)
+        CharSequence result = session.format(arg, Converter.INSPECT);
+        System.out.println(result);
+        return result;
+gogo:getopt --------------  Option gogo:getopt(List, Object[]) -----------------
+- List 		== usage (from below sample)
+- Object[] 	== args
+- Sample:
+        final String[] usage = {
+                "gosh - execute script with arguments in a new session",
+                "  args are available as session variables $1..$9 and $args.",
+                "Usage: gosh [OPTIONS] [script-file [args..]]",
+                "  -c --command             pass all remaining args to sub-shell",
+                "     --nointeractive       don't start interactive session",
+                "     --login               login shell (same session, reads etc/gosh_profile)",
+                "  -s --noshutdown          don't shutdown framework when script completes",
+                "  -x --xtrace              echo commands before execution",
+                "  -? --help                show help",
+                "If no script-file, an interactive shell is started, type $D to exit." };
+
+			Option opt = Options.compile(usage).setOptionsFirst(true).parse(argv);
+
+Use this to parse options in command like this
+	my:command ( CommandSession session, Object...args )
+		Option option =	session.execute ( session, "getopt '" , Arrays.asList(usage) ,args);
+
+gogo:gosh  -------------- shell/Object gogo:gosh(CommandSession, String[]) -----
+1) call a gogo-script
+gogo:grep  -------------- shell/boolean gogo:grep(CommandSession, String[]) ----
+gogo:if    -------------- shell/Object gogo:if(CommandSession, Function[])
+g! if { type type } { echo "type command exist" } { echo "command not exist" }
+type is boolean gogo:type(CommandSession, String[])
+type command exist
+g! if { type type2 } { echo "type command exist" } { echo "command not exist" }
+type: type2 not found.
+command not exist
+
+gogo:new   -------------- shell/Object gogo:new(Object, Object[]) 
+
+g! list = new java.util.LinkedList
+g! ( $list ) add "1"
+true
+g! ( $list ) add "2"
+true
+g! ( $list ) add "3"
+true
+g! echo $list
+[1, 2, 3]
+
+gogo:not
+gogo:set -----------------
+1) set variable into context
+gogo:sh  ----------------- == gosh
+gogo:source --------------
+1) try to load sources to 
+gogo:tac
+g! tac -?
+tac - capture stdin as String or List and optionally write to file.
+Usage: tac [-al] [FILE]
+  -a --append              append to FILE
+  -l --list                return List<String>
+  -? --help                show help
+1) tac -l 			=> append each stdin to a list 	( ! endless loop ! )
+2) tac -l -a file => ~(1) + append to file 			( ! endless loop ! ) 
+!) endless loop reason: 	while ((s = rdr.readLine()) != null)
+gogo:telnetd -------------
+! skipped because
+gogo:throw 
+gogo:try 
+gogo:type ----------------
+gogo:until 
+gogo:while
+
+obr:deploy ---------------
+g! help deploy
+deploy - deploy resource from repository
+   scope: obr
+   flags:
+      -ro, --required-only   deploy required bundles only
+      -s, --start   start deployed bundles
+   parameters:
+      String[]   ( <bundle-name> | <symbolic-name> | <bundle-id> )[@<version>] ...
+1) install <bundle> from repository 
+!) buggy: unresolved constraints skip installation
+
+obr:list -----------------
+1) list bunbles of repos or not
+obr:repos ----------------
+1) add file:/absolut/path/to/index.xml
+2) remove  <repo.id, default=url, use obr:repos list>  
+3) refresh <repo.id, default=url, use obr:repos list>
+4) list list repos
+!) 
+g! obr:repos add file:/Users/winter/work/bnd/bnd-workspace/gogo.shell/obr/index.xml
+g! obr:list 
+com.google.guava (14.0.1)
+biz.aQute.junit (1.2.0.20140510-060840)
+g! deploy com.google.guava 
+g! deploy com.google.guava
+Target resource(s):
+-------------------
+   null (14.0.1)
+
+Deploying...
+done.
+
+g! deploy biz.aQute.junit 
+Unsatisfied requirement(s):
+---------------------------
+   (&(package=org.junit.runner)(version>=4.11.0)(!(version>=5.0.0)))
+      null
+   (&(package=org.junit)(version>=4.11.0)(!(version>=5.0.0)))
+      null
+   (&(osgi.ee=JavaSE)(version=1.5))
+      null
+   (&(package=org.junit.runner.manipulation)(version>=4.11.0)(!(version>=5.0.0)))
+      null
+   (&(package=junit.framework)(version>=3.8.0)(!(version>=4.0.0)))
+      null
+g! install file:/Users/winter/work/bnd/bnd-workspace/gogo.shell/obr/biz.aQute.junit-1.2.0.jar 
+Bundle ID: 7
+g! 
+
+obr:info -----------------
+1) <bundle.id> list req&caps in LDAP/filter style
+
+obr:javadoc --------------
+!) untested
+obr:source ---------------
+!) untested
+osgi:addcommand ----------
+1) registriert all static methods einer class as osgi-command.
+
+osgi:eval
+osgi:removecommand <scope> <full.name.class>
+
+system:arraycopy
+system:clearproperty
+system:console
+system:currenttimemillis
+system:env
+system:exit
+system:gc
+system:getenv
+system:getproperties
+system:getproperty
+system:getsecuritymanager
+system:identityhashcode
+system:inheritedchannel
+system:lineseparator
+system:load
+system:loadlibrary
+system:maplibraryname
+system:nanotime
+system:properties
+system:property
+system:runfinalization
+system:runfinalizersonexit
+system:securitymanager
+system:seterr
+system:setin
+system:setout
+system:setproperties
+system:setproperty
+system:setsecuritymanager

@@ -1,0 +1,29 @@
+-buildpath:  \
+	osgi.cmpn,\
+	biz.aQute.bnd.annotation,\
+	org.apache.felix.gogo.command;version=0.12,\
+	org.apache.felix.gogo.runtime;version=0.12,\
+	org.apache.felix.gogo.shell;version=0.10,\
+	osgi.core;version=4.3,\
+	org.apache.felix.bundlerepository;version=2.0
+Bundle-Version: 0.0.1.${tstamp}
+Private-Package:  \
+	gogo.shell,\
+	gogo.shell.fistcommand,\
+	gogo.shell.samples,\
+	gogo.shell.samples.util
+Service-Component:  \
+	*
+-runfw: org.apache.felix.framework;version='[4.4.0,4.4.0]'
+-runee: JavaSE-1.7
+-runbundles:  \
+	org.apache.felix.gogo.shell;version=0.10.0,\
+	org.apache.felix.gogo.command;version=0.14.0,\
+	org.apache.felix.gogo.runtime;version=0.12.1,\
+	org.apache.felix.bundlerepository;version=2.0.2,\
+	org.apache.felix.scr;version=1.8.2
+
+
+-runproperties:  \
+	felix.log.level=1
+Bundle-Activator: gogo.shell.Activator

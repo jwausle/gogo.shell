@@ -1,0 +1,113 @@
+----------------------------------------------------------------------- Context
+g! set 
+null            0               null
+String          SCOPE           gogo:*
+Boolean         _               true
+File            _cwd            /Users/winter/work/bnd/bnd-workspace/gogo.she
+Closure         e               $exception printStackTrace
+CommandNotFound exception       org.apache.felix.gogo.runtime.CommandNotFound...
+HeapCharBuffer  prompt          g! 
+
+g! key=value
+g! echo $key
+value
+
+-------------------------------------------------------------------- Reflection
+g! ( $key class ) name
+java.lang.String
+g! ( $key getClass ) getName 
+
+------------------------------------------------------------------ Return types
+g! type <command>
+g! type echo 	
+echo is void gogo:echo(Object[])
+g! type cd
+cd is File felix:cd(CommandSession, String)
+cd is File felix:cd(CommandSession)
+
+g! project.root = ( cd . )
+g! $project.root listfiles 
+
+-------------------------------------------------------------------- Primitives
+g! boolean = true
+true
+g! ( $boolean class ) name
+java.lang.Boolean
+g! long = 1
+1
+g! ( $long class ) name
+java.lang.Long
+g! double = 1.2
+1.2
+g! ( $double class ) name
+java.lang.Double
+g! string = 'string'
+string
+g! ( $string class ) name
+java.lang.String
+
+-------------------------------------------------------------------------- List
+g! list = [1 2 3]
+g! set 
+...
+ArrayList       list            [1, 2, 3]
+...
+g! $list get 0 
+1
+g! $list toString
+[1, 2, 3]
+g! ( $list iterator ) next
+1
+-------------------------------------------------------------------------- Map
+g! map = [1=Jan 2=Feb 3=Mar]
+gogo: SyntaxError: map key null or not String: 1
+g! map = ['1'=Jan '2'=Feb '3'=Mar]
+1                   Jan
+2                   Feb
+3                   Mar
+g! set
+...
+LinkedHashMap   map             {1=Jan, 2=Feb, 3=Mar}
+...
+g! 
+g! $map containsKey '1'
+true
+
+-------------------------------------------------------------- Macros/Closures
+g! macro = { echo xxx $args zzz }
+echo xxx $args zzz
+g! macro yyy
+xxx yyy zzz
+g! macro yyy yyy
+xxx yyy yyy zzz
+g! macro $map
+xxx {1=Jan, 2=Feb, 3=Mar} yyy
+
+------------------------------------------------------------------- Loops/Each 
+g! each ( ( $map ) entryset ) { $it }
+1=Jan
+2=Feb
+3=Mar
+
+g! each ( ( $map ) entryset ) { echo $it }
+1=Jan
+2=Feb
+3=Mar
+null  wegen echo-command 
+g! each ( ( $map ) entryset ) { macro $it }
+xxx 1=Jan yyy
+xxx 2=Feb yyy
+xxx 3=Mar yyy
+null  wegen echo-command
+
+g! each ( ( $map ) keyset ) { ( $map ) get $it  }
+Jan
+Feb
+Mar
+
+------------------------------------------------------------------- Exceptions 
+g! $e
+$exception printStackTrace
+g! $exception printStackTrace
+g! $exception [default:fillInStacktrace, getcause, getmessage, getstacktrace]
+

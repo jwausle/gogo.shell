@@ -1,0 +1,41 @@
+g! set
+==
+g! ( service ( servicereference 'org.apache.felix.gogo.shell.Builtin' ) ) set 
+null            0               null
+String          SCOPE           gogo:*
+ServiceReferenc _               [org.apache.felix.gogo.shell.Builtin]
+File            _cwd            /Users/winter/work/bnd/bnd-workspace/gogo.she
+Closure         e               $exception printStackTrace
+CommandNotFound exception       org.apache.felix.gogo.runtime.CommandNotFound...
+ArrayList       list            [1, 2, 3]
+HeapCharBuffer  prompt          g! 
+String          test            /Users/winter/work/bnd/bnd-workspace/gogo.shell
+
+
+------------------- command type infos 
+g! type -t cd
+File org.apache.felix.gogo.command.Files.cd(CommandSession, String)
+File org.apache.felix.gogo.command.Files.cd(CommandSession)
+g! ( cd ) exists					  # reflect file.exists 
+
+
+------------------- system reflection 
+g! (system:getproperties) get 'java.vm.name' 
+
+-------------------
+g! test=((system:getproperties) get 'user.dir')
+g! set
+null            0               null
+String          SCOPE           gogo:*
+null            _               null
+File            _cwd            /Users/winter/work/bnd/bnd-workspace/gogo.she
+Closure         e               $exception printStackTrace
+IllegalArgument exception       java.lang.IllegalArgumentException: Cannot co...
+HeapCharBuffer  prompt          g! 
+String          test            /Users/winter/work/bnd/bnd-workspace/gogo.shell
+
+g! echo ...${SCOPE}...
+...gogo:*...
+g! echo ...${scope}...
+......
+-------------------
