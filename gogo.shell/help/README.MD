@@ -2,10 +2,10 @@
 
 ## general felix:commands
 
-felix:help	[command]
+***felix:help	[command]***
 
-* show help for all or one 'command'
-* 'command' is optional
+> show help for all or one 'command'
+> 'command' is optional
 
 ## bundle felix:commands
 
