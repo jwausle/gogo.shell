@@ -134,57 +134,344 @@ parameters:
 
 ***felix:inspect***
 
+- inspects bundle capabilities and requirements  
+
+parameters:  
+      String   ('capability' | 'requirement')  
+      String   (<namespace> | 'service')  
+      Bundle[]   target bundles  
+
+Samples:
+
+```
+g! inspect cap *			# show all capability of all bundles
+g! inspect cap * 1			# show all capability of 1 bundle
+g! inspect cap *package* 1	# show all capability (*package*) of 1 bundle
+g! inspect cap *package* 	# show all capability (*package*) of all bundles
+g! inspect cap service 1	# show all capability (service) of 1 bundle
+g! inspect cap service	 	# show all capability (service) of all bundles
+
+g! inspect req *			# show all requirements of all bundles
+g! inspect req * 1			# show all requirements of 1 bundle
+g! inspect req *package* 1	# show all requirements (*package*) of 1 bundle
+g! inspect req *package* 	# show all requirements (*package*) of all bundles
+g! inspect cap service 1	# show all requirements (service) of 1 bundle
+g! inspect cap service	 	# show all requirements (service) of all bundles
+```
 
 ## general gogo:commands
 
 ***gogo:set***
 
-***gogo:echo***
+- show session context
+- set a variable into session context `variable = value`
+- get value `$variable` or `${variable}` 
+
+Sample:
+
+```
+g! set
+null            0               null
+String          SCOPE           gogo:*						# scope of last command					
+null            _               null						# return value of last command ( null == void )
+Closure         e               $exception printStackTrace	# short cut '$e' for '$exception printStackTrace' 
+IllegalArgument exception       java.lang.IllegalArgumentException: Cannot co...	# last cached exception
+HeapCharBuffer  prompt          g! 							# ?
+```
+
+***gogo:echo ['objects']***
+
+- print 'object(s).toString' to System.out
 
 ***gogo:grep***
 
-***gogo:cat***
+- grep System.out lines 
+
+Sample:
+
+```
+Successful greps:
+
+g! echo test | grep test
+g! echo test | grep .est
+g! echo test | grep '[tT]est'
+g! echo Test | grep '[tT]est'
+g! echo test | grep t*t
+g! echo test | grep t*
+
+Errors:
+
+g! echo test | grep *est
+Fix: echo test | grep '$*est'
+
+g! echo test | grep [tT]est
+Fix: echo test | grep '[tT]est' 
+``` 
+
+***gogo:cat 'resource'***
+
+- read content of 'resource' 
+- to System.out
+
+```
+g! cat .project				# show content of .project file if exist.
+``
+
+Limitation:  
+- no-'resource' parameter trigger a loop
 
 ***gogo:tac***
 
+- collect content from System.in 
+- to ' '-seperated string 
+- as return 
+
+Usage: tac [-al] [FILE]  
+  -a --append              append to FILE  
+  -l --list                return List<String>  
+  -? --help                show help  
+
+Sample:  
+
+```
+g! cat .project | tac		# collect content of .project into onle line
+g! xml =(cat .project | tac)# collect content of .project into $xml variable
+```
+
+
+Limitation:  
+- successful tested only behind '|'
+
 ## script gogo:commands
 
-***gogo:sh***
+***gogo:sh 'path'***
 
-***gogo:gosh***
+- run a script file
+- last statement == return value
 
-***gogo:source***
+```
+g! sh ./script.sh			# '/absolute/paths' impossible
+```
+
+***gogo:gosh 'path'***
+
+- run a script file
+- last statement == return value
+
+```
+g! gosh ./script.sh			# '/absolute/paths' impossible
+```
+
+***gogo:source 'path'***
+
+- run a script file
+- last statement == return value
+
+
+```
+g! source ./script.sh			# '/absolute/paths' impossible
+```
 
 ## internal gogo:commands
 
 ***gogo:type***
 
-***gogo:getopt***
+- show type of command
 
-***gogo:format***
+Usage: type [OPTIONS] [name[:]]  
+  -a --all                 show all matches  
+  -? --help                show help  
+  -q --quiet               don't print anything, just return status  
+  -s --scope=NAME          list all commands in named scope  
+  -t --types               show full java type names  
+
+Sample:
+
+```
+g! type -a -t echo 
+void org.apache.felix.gogo.shell.Posix.echo(Object[])
+```
+
+***gogo:getopt 'help' ['args']***
+
+- parse command-'help' like that:
+
+Usage: type [OPTIONS] [name[:]]  
+  -a --all                 show all matches  
+  -? --help                show help  
+  -q --quiet               don't print anything, just return status  
+  -s --scope=NAME          list all commands in named scope  
+  -t --types               show full java type names  
+
+- to parse 'args' 
+- and return a option-instance.
+
+
+> Helper command to simplyfy command-args parsing.  
+
+***gogo:format 'obj'*** 
+
+- try to format given 'obj'
+- with registered 'converter'
+- or call tostring
+
+and print to System.out
 
 ***gogo:telnetd***
 
+- untested
 
 ## language gogo:commands
 
 ***gogo:each***
 
+- iterate about a collection 
+- and yield the entry as $it
+
+Sample: 
+
+```
+g! each [1 2 3] { bundle $it }	
+    1|Active     |    1|org.apache.felix.gogo.shell (0.10.0)
+    2|Active     |    1|org.apache.felix.gogo.command (0.14.0)
+    3|Active     |    1|org.apache.felix.gogo.runtime (0.12.1)
+```  
+
 ***gogo:not***
+
+- untested
 
 ***gogo:until***
 
+- untested
+
 ## repository obr:commands
 
-***obr:deploy***
-
-***obr:info***
-
-***obr:javadoc***
-
-***obr:list***
+> require a instance of RepositoryAdmin eg.'org.apache.felix.bundlerepository-2.0.2.jar'
 
 ***obr:repos***
 
-***obr:source***
+repos - manage repositories
 
+parameters:  
+      String   ( add | list | refresh | remove )  
+      String[]   space-delimited list of repository URLs 
+
+- 'obr:repos add 'url' 			# register as repository 
+- 'obr:repos list 	 			# register as repository
+- 'obr:repos refresh 'url|id'	# reload index.xml (e.g after new-generation)
+- 'obr:repos remove 'url|id'	# remove as repository
+
+***obr:list***
+
+- list 'bundleSymbolicNames' 
+- and version of repo-resources
+
+Sample:
+
+```
+g! obr:list
+com.google.guava (14.0.1)
+biz.aQute.junit (1.2.0.20140510-060840)
+```
+
+***obr:info 'bundleSymbolicName'***
+
+- list capabilities and requirements 
+- of 'bundleSymbolicName' from repo-resource
+
+Sample:
+
+```
+g! obr:info com.google.guava
+----------------
+com.google.guava
+----------------
+symbolicname: com.google.guava
+mime: application/vnd.osgi.bundle
+type: osgi.bundle
+uri: file:/Users/winter/work/bnd/gogo.shell/gogo.shell/obr/guava-14.0.1.jar
+size: 2189117
+version: 14.0.1
+Requires:
+   (package=javax.annotation)
+   (package=javax.inject)
+   (package=sun.misc)
+Capabilities:
+   {osgi.wiring.bundle=com.google.guava, bundle-version=14.0.1}
+   {osgi.wiring.host=com.google.guava, bundle-version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.net, version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.collect, version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.primitives, version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.base, version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.cache, version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.eventbus, version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.util.concurrent, version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.hash, version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.io, version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.reflect, version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.math, version=14.0.1}
+   {bundle-version=14.0.1, bundle-symbolic-name=com.google.guava, osgi.wiring.package=com.google.common.annotations, version=14.0.1}
+``` 
+
+
+***obr:deploy 'bundleSymbolicName'***
+
+- try to install 'bundleSymbolicName'
+- into runtime container
+
+Sample:
+
+```
+g! obr:list
+com.google.guava (14.0.1)
+biz.aQute.junit (1.2.0.20140510-060840)
+g! obr:deploy com.google.guava 
+Target resource(s):
+-------------------
+   null (14.0.1)
+
+Deploying...
+done.
+``` 
+
+Limitation:
+
+```
+g! obr:list
+com.google.guava (14.0.1)
+biz.aQute.junit (1.2.0.20140510-060840)
+g! obr:deploy biz.aQute.junit
+Unsatisfied requirement(s):
+---------------------------
+   (&(osgi.ee=JavaSE)(version=1.5))
+
+# EVEN THOUGH:
+g! inspect cap osgi.ee 0
+org.apache.felix.framework [0] provides:
+----------------------------------------
+osgi.ee; OSGi/Minimum [1.0.0, 1.1.0, 1.2.0] [UNUSED]
+osgi.ee; JavaSE [1.0.0, 1.1.0, 1.2.0, 1.3.0, 1.4.0, 1.5.0, 1.6.0, 1.7.0] required by:
+   gogo.shell [6]
+
+```
+
+
+***obr:javadoc***
+
+- retrieve resource JavaDoc from repository
+
+flags:  
+      -x, --extract   extract documentation  
+parameters:  
+      File   local target directory  
+      String[]   ( <bundle-name> | <symbolic-name> | <bundle-id> )[@<version>] ...  
+
+> untested
+
+***obr:source 'bundleSymbolicName'***
+
+- try to 'load/show/.../?' sources of 'bundleSymbolicName'
+- from registered repos
+
+> untested
