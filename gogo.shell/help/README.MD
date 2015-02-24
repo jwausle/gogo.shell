@@ -215,7 +215,7 @@ Fix: echo test | grep '[tT]est'
 
 ```
 g! cat .project				# show content of .project file if exist.
-``
+```
 
 Limitation:  
 - no-'resource' parameter trigger a loop
