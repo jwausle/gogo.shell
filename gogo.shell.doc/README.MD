@@ -362,6 +362,13 @@ parameters:
 - 'obr:repos refresh 'url|id'	# reload index.xml (e.g after new-generation)
 - 'obr:repos remove 'url|id'	# remove as repository
 
+Limitation:
+
+```
+g! repos add 'file:/ ...' 	# is valid 
+g! repos add 'file://...' 	# is invalid
+```
+
 ***obr:list***
 
 - list 'bundleSymbolicNames' 
