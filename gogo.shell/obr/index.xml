@@ -1,280 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<repository increment="1424432295688" name="Untitled" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
-  <resource>
-    <capability namespace="osgi.identity">
-      <attribute name="osgi.identity" value="biz.aQute.junit"/>
-      <attribute name="type" value="osgi.bundle"/>
-      <attribute name="version" type="Version" value="1.2.0.20140510-060840"/>
-    </capability>
-    <capability namespace="osgi.content">
-      <attribute name="osgi.content" value="89d8d341ce506e9af63b9928ec4b390b8ee06cd8ee041b0d5935c6007a4ba1f9"/>
-      <attribute name="url" value="biz.aQute.junit-1.2.0.jar"/>
-      <attribute name="size" type="Long" value="352428"/>
-      <attribute name="mime" value="application/vnd.osgi.bundle"/>
-    </capability>
-    <capability namespace="osgi.wiring.bundle">
-      <attribute name="osgi.wiring.bundle" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-    </capability>
-    <capability namespace="osgi.wiring.host">
-      <attribute name="osgi.wiring.host" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="junit.extensions"/>
-      <attribute name="version" type="Version" value="3.8.0"/>
-      <attribute name="-nouses" value="true"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="junit.framework"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="junit.framework"/>
-      <attribute name="version" type="Version" value="3.8.0"/>
-      <attribute name="-nouses" value="true"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runner,org.junit.runner.manipulation,org.junit.runner.notification"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="junit.runner"/>
-      <attribute name="version" type="Version" value="3.8.0"/>
-      <attribute name="-nouses" value="true"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="junit.framework"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="junit.textui"/>
-      <attribute name="version" type="Version" value="3.8.0"/>
-      <attribute name="-nouses" value="true"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="junit.framework,junit.runner"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.hamcrest,org.junit.internal,org.junit.runners"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.experimental"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runner,org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.experimental.categories"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runner,org.junit.runner.manipulation,org.junit.runners,org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.experimental.max"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runner,org.junit.runner.notification"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.experimental.results"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.hamcrest,org.junit.runner,org.junit.runner.notification"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.experimental.runners"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runners,org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.experimental.theories"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.experimental.theories.internal,org.junit.internal,org.junit.runners,org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.experimental.theories.internal"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.experimental.theories,org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.experimental.theories.suppliers"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.experimental.theories"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.internal"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.hamcrest,org.junit.runner,org.junit.runner.notification"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.internal.builders"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runner,org.junit.runner.notification,org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.internal.matchers"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.hamcrest"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.internal.requests"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runner,org.junit.runner.manipulation"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.internal.runners"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="junit.framework,org.junit.runner,org.junit.runner.manipulation,org.junit.runner.notification"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.internal.runners.model"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.internal,org.junit.runner,org.junit.runner.notification,org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.internal.runners.rules"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.internal.runners.statements"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.matchers"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.hamcrest,org.hamcrest.core"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.rules"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.hamcrest,org.junit.internal,org.junit.runner,org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.runner"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="junit.framework,org.junit.runner.manipulation,org.junit.runner.notification,org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.runner.manipulation"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runner"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.runner.notification"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runner"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.runners"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.internal.runners,org.junit.rules,org.junit.runner,org.junit.runner.manipulation,org.junit.runner.notification,org.junit.runners.model"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.junit.runners.model"/>
-      <attribute name="version" type="Version" value="4.11.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.junit.runner"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.hamcrest"/>
-      <attribute name="version" type="Version" value="1.0.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.hamcrest.core,org.hamcrest.internal"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.hamcrest.core"/>
-      <attribute name="version" type="Version" value="1.0.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.hamcrest"/>
-    </capability>
-    <capability namespace="osgi.wiring.package">
-      <attribute name="osgi.wiring.package" value="org.hamcrest.internal"/>
-      <attribute name="version" type="Version" value="1.0.0"/>
-      <attribute name="bundle-symbolic-name" value="biz.aQute.junit"/>
-      <attribute name="bundle-version" type="Version" value="1.2.0.20140510-060840"/>
-      <directive name="uses" value="org.hamcrest"/>
-    </capability>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=aQute.bnd.build)(version&gt;=2.3.0)(!(version&gt;=3.0.0)))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=aQute.bnd.osgi)(version&gt;=2.2.0)(!(version&gt;=3.0.0)))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=aQute.bnd.service)(version&gt;=4.0.0)(!(version&gt;=5.0.0)))"/>
-      <directive name="resolution" value="optional"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=junit.framework)(version&gt;=3.8.0)(!(version&gt;=4.0.0)))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.junit)(version&gt;=4.11.0)(!(version&gt;=5.0.0)))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.junit.runner)(version&gt;=4.11.0)(!(version&gt;=5.0.0)))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.junit.runner.manipulation)(version&gt;=4.11.0)(!(version&gt;=5.0.0)))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.framework)(version&gt;=1.6.0)(!(version&gt;=2.0.0)))"/>
-    </requirement>
-    <requirement namespace="osgi.wiring.package">
-      <directive name="filter" value="(&amp;(osgi.wiring.package=org.osgi.util.tracker)(version&gt;=1.5.0)(!(version&gt;=2.0.0)))"/>
-    </requirement>
-    <requirement namespace="osgi.ee">
-      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.5))"/>
-    </requirement>
-  </resource>
+<repository increment="1424897599158" name="Untitled" xmlns="http://www.osgi.org/xmlns/repository/v1.0.0">
   <resource>
     <capability namespace="osgi.identity">
       <attribute name="osgi.identity" value="com.google.guava"/>
@@ -389,6 +114,40 @@
     <requirement namespace="osgi.wiring.package">
       <directive name="filter" value="(osgi.wiring.package=sun.misc)"/>
       <directive name="resolution" value="optional"/>
+    </requirement>
+  </resource>
+  <resource>
+    <capability namespace="osgi.identity">
+      <attribute name="osgi.identity" value="require.guava"/>
+      <attribute name="type" value="osgi.bundle"/>
+      <attribute name="version" type="Version" value="1.0.0.201502252052"/>
+    </capability>
+    <capability namespace="osgi.content">
+      <attribute name="osgi.content" value="b11ad228c1a9c38b1493b7c77e824afe52041109b1217b2c0c124d17bd0fc175"/>
+      <attribute name="url" value="require.guava.jar"/>
+      <attribute name="size" type="Long" value="2163"/>
+      <attribute name="mime" value="application/vnd.osgi.bundle"/>
+    </capability>
+    <capability namespace="osgi.wiring.bundle">
+      <attribute name="osgi.wiring.bundle" value="require.guava"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201502252052"/>
+    </capability>
+    <capability namespace="osgi.wiring.host">
+      <attribute name="osgi.wiring.host" value="require.guava"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201502252052"/>
+    </capability>
+    <capability namespace="osgi.wiring.package">
+      <attribute name="osgi.wiring.package" value="require.guava"/>
+      <attribute name="version" type="Version" value="1.0.0"/>
+      <attribute name="bundle-symbolic-name" value="require.guava"/>
+      <attribute name="bundle-version" type="Version" value="1.0.0.201502252052"/>
+      <directive name="uses" value="com.google.common.base"/>
+    </capability>
+    <requirement namespace="osgi.wiring.package">
+      <directive name="filter" value="(&amp;(osgi.wiring.package=com.google.common.base)(version&gt;=12.0.0))"/>
+    </requirement>
+    <requirement namespace="osgi.ee">
+      <directive name="filter" value="(&amp;(osgi.ee=JavaSE)(version=1.7))"/>
     </requirement>
   </resource>
 </repository>

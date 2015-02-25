@@ -1,0 +1,25 @@
+		S E D
+----------------------------------------------------
+g! bundles
+
+g! bundles | sed 's/.*[0-9]\|(.*) .*/$1/g' 
+
+g! bundles | sed 's/.*[0-9]\|(.*) .*/$1/g' | sort
+
+g! bundles | sed 's/.*[0-9]\|(.*) .*/$1/g' | sort | tac
+
+g! bsn = ( bundles | sed 's/.*[0-9]\|(.*) .*/$1/g' | sort | tac )
+
+		T R
+----------------------------------------------------
+g! cat .project 
+
+g! cat .project | tr '/' '' 
+
+g! cat .project | tr '/' '' | sort  
+
+g! cat .project | tr '/' '' | sort | unique 	
+
+g! cat .project | tr '/' '' | sort | unique | tac
+
+g! xml = ( cat .project | tr '/' '' | sort | unique | tac )

@@ -1,0 +1,43 @@
+		L B / B U N D L E S
+---------------------------------------
+g! lb 
+START LEVEL 1
+   ID|State      |Level|Name
+    0|Active     |    0|System Bundle (4.4.0)
+	...
+	6|Active     |    1|gogo.shell (0.0.1.201502232214)
+
+g! lb -s 
+START LEVEL 1
+   ID|State      |Level|Symbolic name
+    0|Active     |    0|org.apache.felix.framework (4.4.0)
+	...
+    6|Active     |    1|gogo.shell (0.0.1.201502232214)
+
+g! lb -l 
+START LEVEL 1
+   ID|State      |Level|Location
+    0|Active     |    0|System Bundle
+	...
+    6|Active     |    1|reference:file:/Users/winter/work/bnd/gogo.shell/gogo.shell/generated/gogo.shell.jar
+    
+-------
+g! bundles  
+
+		I N S P E C T
+---------------------------------------
+g! inspect cap *            # show all capability of all bundles
+g! inspect cap * 1          # show all capability of 1 bundle
+g! inspect cap *package* 1  # show all capability (*package*) of 1 bundle
+g! inspect cap *package*    # show all capability (*package*) of all bundles
+g! inspect cap service 1    # show all capability (service) of 1 bundle
+g! inspect cap service      # show all capability (service) of all bundles
+
+g! inspect req *            # show all requirements of all bundles
+g! inspect req * 1          # show all requirements of 1 bundle
+g! inspect req *package* 1  # show all requirements (*package*) of 1 bundle
+g! inspect req *package*    # show all requirements (*package*) of all bundles
+g! inspect cap service 1    # show all requirements (service) of 1 bundle
+g! inspect cap service      # show all requirements (service) of all bundles
+
+g! headers 

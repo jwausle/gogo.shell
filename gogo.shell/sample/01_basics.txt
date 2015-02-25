@@ -1,0 +1,77 @@
+		S E T
+---------------------------------------
+g! set
+g! test=1
+1
+g! set | grep test
+Long            test            1
+true
+g! test = 1.0
+1.0
+g! set | grep test
+Double          test            1.0
+true
+g! test = TRUE
+TRUE
+g! set | grep test
+String          test            TRUE
+true
+g! test = true
+true
+g! set | grep test
+Boolean         test            true
+true
+g! test = true
+
+		L I S T
+---------------------------------------
+g! list = [ 1 2 ]
+1
+2
+
+g! each $list { bundle $it }
+    1|Active     |    1|org.apache.felix.gogo.shell (0.10.0)
+    2|Active     |    1|org.apache.felix.gogo.command (0.14.0)
+
+g! each $list { (bundle $it) location }
+reference:file:/Users/winter/.bnd/cache/https%253A%252F%252Fgithub.com%252Fbndtools%252Fbundle-hub%252Fraw%252Fmaster%252Forg.apache.felix.gogo.shell/org.apache.felix.gogo.shell-0.10.0.jar
+reference:file:/Users/winter/.bnd/cache/https%253A%252F%252Fgithub.com%252Fbndtools%252Fbundle-hub%252Fraw%252Fmaster%252Forg.apache.felix.gogo.command/org.apache.felix.gogo.command-0.14.0.jar
+
+-------
+g! list = [ 1 '2'  3.0 true ]
+
+g! (( $list get 0 ) class ) name
+java.lang.Long
+g! (( $list get 1 ) class ) name
+java.lang.String
+g! (( $list get 2 ) class ) name
+java.lang.Double
+g! (( $list get 3 ) class ) name
+java.lang.Boolean
+ 
+		G R E P
+---------------------------------------
+Successful greps:
+
+g! echo test | grep test
+g! echo test | grep .est
+g! echo test | grep '[tT]est'
+g! echo Test | grep '[tT]est'
+g! echo test | grep t*t
+g! echo test | grep t*
+
+-------
+Errors:
+
+g! echo test | grep *est
+Fix: echo test | grep '$*est'
+
+g! echo test | grep [tT]est
+Fix: echo test | grep '[tT]est'
+
+		C A T / T A C
+---------------------------------------
+g! cat .project 
+g! cat .project | tac
+g! project = ( cat .project | tac )
+g! echo $project

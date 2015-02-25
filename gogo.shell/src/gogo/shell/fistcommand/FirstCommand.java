@@ -12,10 +12,9 @@ properties = {//
 provide = FirstCommand.class//
 )
 public class FirstCommand {
-	public void macro(Object arg) {
-		System.out.println("macro#obj: Bla " + arg + " blub");
-	}
-
+	// public void macro(Object arg) {
+	// System.out.println("macro#obj: Bla " + arg + " blub");
+	// }
 	// public void macro(Long arg){
 	// System.out.println("macro#long: Bla " + arg + " blub");
 	// }

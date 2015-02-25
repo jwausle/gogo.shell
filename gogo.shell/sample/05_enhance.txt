@@ -1,0 +1,43 @@
+		T Y P E 
+------------------------------------
+g! type
+context:30		# instance of felix.gogo.shell/BundleContext
+felix:17		
+gogo:20
+itemis:1		# FirstCommand DS
+itemisle:1		# FirstCommand Activator.register
+jwausle:10		# Meine
+obr:6			
+osgi:3			# addcommand <scope> <class>
+scr:5			# DS registration
+system:29		# instance of System.static`s
+
+		S C R
+------------------------------------
+g! scr:list
+ Id   State BundleId Name
+[   8] [active      ] [   6] PostRepoAdminActivationHook
+[   9] [active      ] [   6] gogo.shell.fistcommand.FirstCommand
+[  10] [active      ] [   6] gogo.shell.samples.Gogo_lines
+[  11] [active      ] [   6] gogo.shell.samples.Gogo_string
+
+g! disable 10
+Component gogo.shell.samples.Gogo_lines disabled
+g! scr:list
+ Id   State BundleId Name
+[  -1] [disabled    ] [   6] gogo.shell.samples.Gogo_lines
+
+g! refresh 6
+g! scr:list
+ Id   State BundleId Name
+[  12] [active      ] [   6] PostRepoAdminActivationHook
+[  13] [registered  ] [   6] gogo.shell.fistcommand.FirstCommand
+[  14] [registered  ] [   6] gogo.shell.samples.Gogo_lines
+[  15] [registered  ] [   6] gogo.shell.samples.Gogo_string
+
+		O S G I 
+------------------------------------
+g! addcommand list ( new java.util.LinkedList )
+g! type -a | grep list:
+g! list:add 1
+

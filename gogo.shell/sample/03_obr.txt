@@ -1,0 +1,41 @@
+g! obr:repos list
+file:/Users/winter/work/bnd/gogo.shell/gogo.shell/obr/index.xml
+g! obr:list 
+com.google.guava (14.0.1)
+require.guava (1.0.0.201502252052)
+g! deploy com.google.guava
+Target resource(s):
+-------------------
+   null (14.0.1)
+
+Deploying...
+done.
+
+g! obr:deploy require.guava
+Unsatisfied requirement(s):
+---------------------------
+   (&(osgi.ee=JavaSE)(version=1.7))
+      null
+
+g! obr:info require.guava
+-------------
+require.guava
+-------------
+symbolicname: require.guava
+mime: application/vnd.osgi.bundle
+type: osgi.bundle
+uri: file:/Users/winter/work/bnd/gogo.shell/gogo.shell/obr/require.guava.jar
+size: 2163
+version: 1.0.0.201502252052
+Requires:
+   (&(package=com.google.common.base)(version>=12.0.0))
+   (&(osgi.ee=JavaSE)(version=1.7))
+Capabilities:
+   {osgi.wiring.bundle=require.guava, bundle-version=1.0.0.201502252052}
+   {osgi.wiring.host=require.guava, bundle-version=1.0.0.201502252052}
+   {bundle-version=1.0.0.201502252052, bundle-symbolic-name=require.guava, osgi.wiring.package=require.guava, version=1.0.0}
+   
+
+g! install file:/Users/winter/work/bnd/gogo.shell/gogo.shell/obr/require.guava.jar
+Bundle ID: 8
+g! 
