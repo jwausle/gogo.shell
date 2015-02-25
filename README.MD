@@ -13,5 +13,5 @@ gogo.shell.doc [https://github.com/jwausle/gogo.shell/tree/master/gogo.shell.doc
 
 - documentation 
 - command-help (README.MD)
-- slides [https://github.com/jwausle/gogo.shell/blob/master/gogo.shell.doc/gogo-shell.pdf]
+- slides [https://github.com/jwausle/gogo.shell/raw/master/gogo.shell.doc/gogo-shell.pdf]
 
