@@ -1,11 +1,11 @@
 # gogo shell
 
-Try to get a overview about gogo (commands, syntax, enhancements and limitations). 
+Try to get a overview about gogo (command, syntax, enhancement and limitation). 
 The overview is a more detailed than [http://felix.apache.org/site/rfc-147-overview.html]. 
 
 ## directories (above)
 
-Represent the eclipse-workspace to getting started to understand gogo step by step.
+Represent the eclipse-workspace to getting started understand gogo step by step.
 
 [cnf] (https://github.com/jwausle/gogo.shell/tree/master/cnf)
 
