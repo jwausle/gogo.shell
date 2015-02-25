@@ -126,7 +126,8 @@ flags:
 parameters:  
       bsn   subtring matched against name or symbolic name  
 
-***felix:headers ['bundleId'] ***
+
+***felix:headers ['bundleId']***
 
 - show all headers 		( if noparam )
 - show bundle-header 	( if 1-param exist )
