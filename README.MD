@@ -1,7 +1,7 @@
 # gogo shell
 
 Try to get a overview about gogo (command, syntax, enhancement and limitation). 
-The overview is a more detailed than [http://felix.apache.org/site/rfc-147-overview.html]. 
+The overview is more detailed than [http://felix.apache.org/site/rfc-147-overview.html]. 
 
 ## directories (above)
 
