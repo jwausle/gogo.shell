@@ -5,7 +5,7 @@ The overview is more detailed than [http://felix.apache.org/site/rfc-147-overvie
 
 ## directories (above)
 
-Represent the eclipse-workspace to getting started understand gogo step by step.
+Represent a eclipse-workspace to getting started understand gogo step by step.
 
 [cnf] (https://github.com/jwausle/gogo.shell/tree/master/cnf)
 
