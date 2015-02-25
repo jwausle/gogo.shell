@@ -1,6 +1,6 @@
 # gogo shell workspace
 
-cnf [https://github.com/jwausle/gogo.shell/tree/master/cnf]
+cnf [https://github.com/jwausle/gogo.shell/tree/master/cnf](cnf)
 
 - gogo.shell requirements for bndtools
 
