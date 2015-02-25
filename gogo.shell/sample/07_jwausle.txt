@@ -8,7 +8,7 @@ g! bundles | sed 's/.*[0-9]\|(.*) .*/$1/g' | sort
 
 g! bundles | sed 's/.*[0-9]\|(.*) .*/$1/g' | sort | tac
 
-g! bsn = ( bundles | sed 's/.*[0-9]\|(.*) .*/$1/g' | sort | tac )
+g! bsn in= ( bundles | sed 's/.*[0-9]\|(.*) .*/$1/g' | sort | tac )
 
 		T R
 ----------------------------------------------------

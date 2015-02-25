@@ -1,0 +1,13 @@
+g! sh script/return-itemis.gosh
+java.lang.String
+g! gosh script/return-itemis.gosh
+java.lang.String
+g! source script/return-itemis.gosh
+java.lang.String
+
+g! return = ( sh script/return-itemis.gosh )
+java.lang.String
+g! ( $return class ) name
+java.lang.String
+g! echo $return
+ 
