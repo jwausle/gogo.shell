@@ -12,6 +12,14 @@ osgi:3			# addcommand <scope> <class>
 scr:5			# DS registration
 system:29		# instance of System.static`s
 
+		C O N T E X T
+------------------------------------
+g! service ( servicereference gogo.shell.fistcommand.FirstCommand )
+gogo.shell.fistcommand.FirstCommand@81f4cba
+
+g! ( service ( servicereference gogo.shell.fistcommand.FirstCommand ) ) nocmd  
+nocmd reflected.
+
 		S C R
 ------------------------------------
 g! scr:list

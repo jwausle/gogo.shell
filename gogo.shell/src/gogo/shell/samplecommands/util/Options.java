@@ -1,4 +1,4 @@
-package gogo.shell.samples.util;
+package gogo.shell.samplecommands.util;
 
 import java.util.Arrays;
 import java.util.Collections;

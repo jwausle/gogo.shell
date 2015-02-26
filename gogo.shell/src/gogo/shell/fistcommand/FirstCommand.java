@@ -31,5 +31,9 @@ public class FirstCommand {
 	public void closure(CommandSession session, String arg) {
 		System.out.println("closure# Blub " + arg + " bla");
 	}
+	
+	public void nocmd(){
+		System.out.println("nocmd reflected.");
+	}
 
 }

@@ -10,8 +10,8 @@ Bundle-Version: 0.0.1.${tstamp}
 Private-Package:  \
 	gogo.shell,\
 	gogo.shell.fistcommand,\
-	gogo.shell.samples,\
-	gogo.shell.samples.util
+	gogo.shell.samplecommands,\
+	gogo.shell.samplecommands.util
 Service-Component:  \
 	*
 -runfw: org.apache.felix.framework;version='[4.4.0,4.4.0]'

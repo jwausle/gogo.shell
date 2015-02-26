@@ -1,8 +1,8 @@
-package gogo.shell.samples;
+package gogo.shell.samplecommands;
 
-import gogo.shell.samples.util.Option;
-import gogo.shell.samples.util.Options;
-import gogo.shell.samples.util.Strings;
+import gogo.shell.samplecommands.util.Option;
+import gogo.shell.samplecommands.util.Options;
+import gogo.shell.samplecommands.util.Strings;
 
 import java.io.IOException;
 import java.util.Arrays;

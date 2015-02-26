@@ -1,4 +1,4 @@
-package gogo.shell.samples;
+package gogo.shell.samplecommands;
 
 import java.io.BufferedReader;
 import java.io.IOException;

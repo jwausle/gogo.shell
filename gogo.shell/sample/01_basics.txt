@@ -75,3 +75,7 @@ g! cat .project
 g! cat .project | tac
 g! project = ( cat .project | tac )
 g! echo $project
+
+		L S / C D 
+---------------------------------------
+g! ls		

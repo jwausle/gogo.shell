@@ -17,17 +17,16 @@ public class Activator implements BundleActivator, BundleListener {
 	private BundleContext context;
 
 	@Override
-	public void start(BundleContext context) throws Exception {		
+	public void start(BundleContext context) throws Exception {
 		this.context = context;
 
 		context.addBundleListener(this);
 
 		Dictionary<String, Object> dict = new Hashtable<>();
 		dict.put("osgi.command.scope", "itemisle");
-		dict.put("osgi.command.function", new String[] {"closure"});
+		dict.put("osgi.command.function", new String[] { "closure" });
 		context.registerService(FirstCommand.class, new FirstCommand(), dict);
 	}
-
 
 	@Override
 	public void stop(BundleContext context) throws Exception {
@@ -46,8 +45,11 @@ public class Activator implements BundleActivator, BundleListener {
 			return;
 
 		// to trigger PostRepoAdminActivationHook
-		ServiceReference<?> serviceReference = context.getServiceReference(PostRepoAdminActivationHook.class.getName());
-		context.getService(serviceReference);
+		ServiceReference<?> serviceReference = context
+				.getServiceReference(PostRepoAdminActivationHook.class
+						.getName());
+		if (serviceReference != null)
+			context.getService(serviceReference);
 
 	}
 
