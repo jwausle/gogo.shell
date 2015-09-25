@@ -1,5 +1,5 @@
 test2 = itemis
-var = ( $test2 class ) name
+var2 = ( $test2 class ) name
 
 "return $var"
 #echo

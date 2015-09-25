@@ -11,10 +11,10 @@ import aQute.bnd.annotation.component.Activate;
 import aQute.bnd.annotation.component.Component;
 import aQute.bnd.annotation.component.Reference;
 
-//@Component(//
-//name = "PostRepoAdminActivationHook",//
-//provide = { PostRepoAdminActivationHook.class }//
-//)
+@Component(//
+name = "PostRepoAdminActivationHook",//
+provide = { PostRepoAdminActivationHook.class }//
+)
 public class PostRepoAdminActivationHook {
 	private CommandProcessor commandsOrNull = null;
 
